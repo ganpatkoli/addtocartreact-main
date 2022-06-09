@@ -3,7 +3,6 @@ import "./cart.css";
 import { products } from "./product";
 import ContextCart from "./ContextCart";
 import reducer from "./reducer";
-
 // create a context
 export const CartContext = createContext();
 
@@ -54,6 +53,13 @@ const Cart = () => {
     </>
   );
 };
+
+
+
+
+
+
+
 
 // custom Hook
 export const useGlobalContext = () => {

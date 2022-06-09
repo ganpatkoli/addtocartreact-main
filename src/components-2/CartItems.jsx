@@ -3,12 +3,13 @@ import { cartcontaxt } from "./Maincard";
 
 const Cart_items = ({id , title , description , price, img , quantity  }) => {
 
-const { removeItem, increment, decrement}  = useContext(cartcontaxt)
+const { removeItem , decreaseItem , increseItem }  = useContext(cartcontaxt)
 
 
 
   return (
         <div>
+        
        <div className="items-info">
                     <div className="product-img">
                       <img src={img} alt="iamge" />
@@ -19,9 +20,9 @@ const { removeItem, increment, decrement}  = useContext(cartcontaxt)
                       <p>{description}</p>
                     </div>
                     <div className="add-minus-quantity">
-                      <i className="fas fa-minus minus" onClick={()=> decrement(id)}></i>
+                      <i className="fas fa-minus minus" onClick={()=>decreaseItem(id)} ></i>
                       <input type="text" placeholder={quantity} disabled />
-                      <i className="fas fa-plus add" onClick={()=>increment(id)} ></i>
+                      <i className="fas fa-plus add" onClick={()=>increseItem(id)}></i>
                     </div>
 
                     <div className="price">
@@ -29,7 +30,7 @@ const { removeItem, increment, decrement}  = useContext(cartcontaxt)
                     </div>
 
                     <div className="remove-item">
-                      <i className="fas fa-trash-alt remove" onClick={() => removeItem(id) }></i>
+                      <i className="fas fa-trash-alt remove" onClick={()=>removeItem(id)}></i>
                     </div>
                   </div>
 

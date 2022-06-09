@@ -1,4 +1,4 @@
-import React, { createContext, useReducer , useEffect} from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import "./cart.css";
 import Products from "./Products";
 import CartContaxt from "./CartContaxt";
@@ -25,61 +25,39 @@ const Maincard = () => {
 
   const removeItem = (id) => {
     return dispatch({
-      type: "REMOVE_ITEM",
+      type: "REMOVEITEM",
       payload: id,
     });
   };
 
   const clearCart = () => {
     return dispatch({
-      type: "CLEAR_CART",
+      type: "CLEARCART",
     });
   };
 
+  const increseItem = (id) => {
+    return dispatch({
+      type: "INCREASE",
+      payload: id,
+    });
+  };
 
+  const decreaseItem = (id) => {
+    return dispatch({
+      type: "DECREASE",
+      payload: id,
+    });
+  };
 
-
-const increment= (id)=>{
-  return dispatch({
-type: "INCREMENT",
-payload:id
-  })
-}
-const decrement= (id)=>{
-  return dispatch({
-type: "DECREMENT",
-payload:id
-  })
-}
-
-
-
-
-useEffect(() => {
-  dispatch({type:"GET_TOTAL"})
-  console.log("click");
-
-}, [state.items])
-
-
-
-
-useEffect(() => {
-dispatch ({
-  type:('GET_AMMOUNT')
-})
-
-
-
-
-}, [state.items])
-
-
-
-
+  useEffect(() => {
+    dispatch({ type: "GETTOTAL" });
+  }, [state.items]);
 
   return (
-    <cartcontaxt.Provider value={{ ...state, removeItem, clearCart, increment , decrement  }}>
+    <cartcontaxt.Provider
+      value={{ ...state, removeItem, clearCart, decreaseItem, increseItem }}
+    >
       <CartContaxt />
     </cartcontaxt.Provider>
   );

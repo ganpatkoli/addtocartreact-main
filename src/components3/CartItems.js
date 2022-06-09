@@ -1,0 +1,41 @@
+import { useContext } from "react";
+import  {createCartContext}  from "./MainCart";
+
+
+const CartItems = ({ id, title, description, price, img, quantity }) => {
+
+  // const  { Increase} = useContext(createCartContext)
+
+  return (
+    <>
+      <div className="items-info">
+        <div className="product-img">
+          <img src={img} alt="iamge" />
+        </div>
+
+        <div className="title">
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+
+        <div className="add-minus-quantity">
+          <i className="fas fa-minus minus"></i>
+          <input type="text" disabled placeholder={quantity} />
+          <i className="fas fa-plus add"  ></i>
+        </div>
+
+        <div className="price">
+          <h3>{price}</h3>
+        </div>
+
+        <div className="remove-item">
+          {/* <i className="fas fa-trash-alt remove"  onClick={()=>removeItem(id)} ></i> */}
+        </div>
+      </div>
+
+      <hr />
+    </>
+  );
+};
+
+export default CartItems;
